@@ -1,9 +1,13 @@
+import { Section, Container, Title } from 'rbx'
+
 const ApplicationLayout = ({ children }) => {
   return (
-    <>
-      <h1>FLIX</h1>
-      <main>{children}</main>
-    </>
+    <Section>
+      <Container>
+        <Title>FLIX</Title>
+        <main>{children}</main>
+      </Container>
+    </Section>
   )
 }
 
