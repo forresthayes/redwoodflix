@@ -1,17 +1,12 @@
 import ApplicationLayout from 'src/layouts/ApplicationLayout'
 import { Content } from 'rbx'
+import FlixCell from 'src/components/FlixCell'
 
 const HomePage = () => {
-  const movies = ['Iron Man', 'Superman', 'Spider-Man']
   return (
     <ApplicationLayout>
       <Content>
-        <p>Flix Home</p>
-        <ul>
-          {movies.map((movie) => (
-            <li key={movie}>{movie}</li>
-          ))}
-        </ul>
+        <FlixCell />
       </Content>
     </ApplicationLayout>
   )
