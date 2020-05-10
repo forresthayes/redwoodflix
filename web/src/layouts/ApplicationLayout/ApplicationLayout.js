@@ -21,7 +21,7 @@ const ApplicationLayout = ({ children }) => {
               to={routes.home()}
               textColor="light"
               textSize={5}
-              style={{ paddingTop: '1.9rem', marginLeft: '0.4rem' }}
+              style={{ marginLeft: '0.4rem' }}
             >
               All Movies
             </Navbar.Item>

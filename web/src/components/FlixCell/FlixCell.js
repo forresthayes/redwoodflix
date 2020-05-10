@@ -1,3 +1,4 @@
+import { Link, routes } from '@redwoodjs/router'
 import { Section, Title, Image, Column } from 'rbx'
 
 export const QUERY = gql`
@@ -37,8 +38,10 @@ export const Success = ({ movies }) => {
           </Image.Container>
         </Column>
         <Column>
-          <Title size={4}>{movie.title}</Title>
-          <Title subtitle size={5} textColor="grey">
+          <Title size={4} style={{ marginBottom: '0.4rem' }}>
+            <Link to={routes.flick({ id: movie.id })}>{movie.title}</Link>
+          </Title>
+          <Title subtitle size={5} textColor="grey" style={{ marginTop: '0' }}>
             {numberFormat.format(movie.total_gross)}
           </Title>
           <p>{movie.description}</p>
