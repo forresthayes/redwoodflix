@@ -1,9 +1,11 @@
-const FlickPage = () => {
+import ApplicationLayout from 'src/layouts/ApplicationLayout'
+import FlickCell from 'src/components/FlickCell'
+
+const FlickPage = ({ id }) => {
   return (
-    <div>
-      <h1>FlickPage</h1>
-      <p>Find me in ./web/src/pages/FlickPage/FlickPage.js</p>
-    </div>
+    <ApplicationLayout>
+      <FlickCell id={id} />
+    </ApplicationLayout>
   )
 }
 
