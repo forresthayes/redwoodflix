@@ -1,5 +1,5 @@
 import { Link, routes } from '@redwoodjs/router'
-import { Image, Navbar, Section, Container, Title, Footer } from 'rbx'
+import { Generic, Image, Navbar, Section, Container, Title, Footer } from 'rbx'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFilm } from '@fortawesome/free-solid-svg-icons'
 
@@ -21,31 +21,38 @@ const ApplicationLayout = ({ children }) => {
               to={routes.home()}
               textColor="light"
               textSize={5}
-              style={{ paddingTop: '1.9rem', marginLeft: '2rem' }}
+              style={{ paddingTop: '1.9rem', marginLeft: '0.4rem' }}
             >
               All Movies
             </Navbar.Item>
           </Navbar.Segment>
         </Navbar.Menu>
       </Navbar>
-      <Container>
-        <Section>{children}</Section>
-      </Container>
+      <Generic as="main" backgroundColor="white-ter">
+        <Container>
+          <Section>{children}</Section>
+        </Container>
+      </Generic>
       <Footer
         backgroundColor="grey-dark"
         textColor="light"
         textAlign="centered"
       >
-        Built by Forrest with{' '}
-        <a href="https://redwoodjs.com/">
-          <Image.Container
-            size={16}
-            style={{ display: 'inline-block', margin: '0 0.3em' }}
-          >
-            <Image src="/logo.svg" alt="Logo" />
-          </Image.Container>
-          RedwoodJS
-        </a>
+        <p>
+          Built by Forrest with{' '}
+          <a href="https://redwoodjs.com/">
+            <Image.Container
+              size={16}
+              style={{ display: 'inline-block', margin: '0 0.3em' }}
+            >
+              <Image src="/logo.svg" alt="Logo" />
+            </Image.Container>
+            RedwoodJS
+          </a>
+          <br />
+          Inspired by{' '}
+          <a href="https://pragmaticstudio.com/">The Pragmatic Studio</a>
+        </p>
       </Footer>
     </>
   )
