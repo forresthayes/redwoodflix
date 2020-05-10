@@ -29,7 +29,7 @@ export const Success = ({ movies }) => {
   return movies.map((movie) => (
     <Section key={movie.id} style={{ borderBottom: '1px dotted #c2c2c2' }}>
       <Column.Group>
-        <Column size="one-quarter">
+        <Column size={2} offset={2}>
           <Image.Container>
             <Image
               src={`/static-files/images/${movie.image_file_name}`}
@@ -37,7 +37,7 @@ export const Success = ({ movies }) => {
             />
           </Image.Container>
         </Column>
-        <Column>
+        <Column size={7}>
           <Title size={4} style={{ marginBottom: '0.4rem' }}>
             <Link to={routes.flick({ id: movie.id })}>{movie.title}</Link>
           </Title>

@@ -29,9 +29,7 @@ const ApplicationLayout = ({ children }) => {
         </Navbar.Menu>
       </Navbar>
       <Generic as="main" backgroundColor="white-ter">
-        <Container>
-          <Section>{children}</Section>
-        </Container>
+        <Container>{children}</Container>
       </Generic>
       <Footer
         backgroundColor="grey-dark"
