@@ -1,5 +1,5 @@
 import { Link, routes } from '@redwoodjs/router'
-import { Navbar, Section, Container, Title } from 'rbx'
+import { Image, Navbar, Section, Container, Title, Footer } from 'rbx'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFilm } from '@fortawesome/free-solid-svg-icons'
 
@@ -31,6 +31,22 @@ const ApplicationLayout = ({ children }) => {
       <Container>
         <Section>{children}</Section>
       </Container>
+      <Footer
+        backgroundColor="grey-dark"
+        textColor="light"
+        textAlign="centered"
+      >
+        Built by Forrest with{' '}
+        <a href="https://redwoodjs.com/">
+          <Image.Container
+            size={16}
+            style={{ display: 'inline-block', margin: '0 0.3em' }}
+          >
+            <Image src="/logo.svg" alt="Logo" />
+          </Image.Container>
+          RedwoodJS
+        </a>
+      </Footer>
     </>
   )
 }
