@@ -38,21 +38,19 @@ const ApplicationLayout = ({ children }) => {
         textColor="light"
         textAlign="centered"
       >
-        <p>
-          Built by Forrest with{' '}
-          <a href="https://redwoodjs.com/">
-            <Image.Container
-              size={16}
-              style={{ display: 'inline-block', margin: '0 0.3em' }}
-            >
-              <Image src="/logo.svg" alt="Logo" />
-            </Image.Container>
-            RedwoodJS
-          </a>
-          <br />
-          Inspired by{' '}
-          <a href="https://pragmaticstudio.com/">The Pragmatic Studio</a>
-        </p>
+        Built by Forrest with{' '}
+        <a href="https://redwoodjs.com/">
+          <Image.Container
+            size={16}
+            style={{ display: 'inline-block', margin: '0 0.3em' }}
+          >
+            <Image src="/logo.svg" alt="Logo" />
+          </Image.Container>
+          RedwoodJS
+        </a>
+        <br />
+        Inspired by{' '}
+        <a href="https://pragmaticstudio.com/">The Pragmatic Studio</a>
       </Footer>
     </>
   )
