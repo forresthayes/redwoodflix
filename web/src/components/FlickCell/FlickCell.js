@@ -1,4 +1,5 @@
-import { Section, Column, Image, Title } from 'rbx'
+import { Link, routes } from '@redwoodjs/router'
+import { Section, Column, Image, Title, Button } from 'rbx'
 
 export const QUERY = gql`
   query($id: Int!) {
@@ -73,6 +74,11 @@ export const Success = ({ movie }) => {
               </tr>
             </tbody>
           </table>
+          <Link to={routes.newReview({ id: movie.id })}>
+            <Button color="link" textTransform="uppercase">
+              write review
+            </Button>
+          </Link>
         </Column>
       </Column.Group>
     </Section>
