@@ -5,17 +5,36 @@ import {
   TextAreaField,
   Submit,
   FieldError,
+  FormError,
+  useMutation,
 } from '@redwoodjs/web'
 import { useState } from 'react'
 import ApplicationLayout from 'src/layouts/ApplicationLayout'
-import { Link, routes } from '@redwoodjs/router'
+import { Link, routes, navigate } from '@redwoodjs/router'
 import { Rating } from '@material-ui/lab'
 import { Title, Section, Container, Field, Control, Column } from 'rbx'
 
+const CREATE_CONTACT = gql`
+  mutation CreateReviewMutation($input: CreateReviewInput!) {
+    createReview(input: $input) {
+      id
+    }
+  }
+`
+
 const NewReviewPage = ({ id }) => {
+  const [create, { loading, error }] = useMutation(CREATE_CONTACT, {
+    onCompleted: () => {
+      alert('Review posted successfully!')
+      navigate(routes.flick({ id }))
+    },
+  })
+
   const [starValue, setStarValue] = useState(3)
+
   const onSubmit = (data) => {
-    console.log({ stars: starValue, ...data })
+    const input = { movieId: id, stars: starValue, ...data }
+    create({ variables: { input } })
   }
 
   return (
@@ -28,7 +47,24 @@ const NewReviewPage = ({ id }) => {
                 New Review for{' '}
                 <Link to={routes.flick({ id: id })}>a movie</Link>
               </Title>
-              <Form onSubmit={onSubmit}>
+              <Form
+                onSubmit={onSubmit}
+                validation={{ mode: 'onBlur' }}
+                error={error}
+              >
+                <FormError
+                  error={error}
+                  wrapperStyle={{
+                    backgroundColor: '#feecf0',
+                    borderRadius: '4px',
+                    color: '#cc0f35',
+                    marginBottom: '0.75rem',
+                    padding: '1.25em 1.5em',
+                  }}
+                  titleStyle={{ fontWeight: '700' }}
+                  listStyle={{ all: 'inherit' }}
+                  listItemClassStyle={{ all: 'inherit' }}
+                />
                 <Field>
                   <Label name="name" className="label" errorClassName="error">
                     Name
@@ -83,7 +119,9 @@ const NewReviewPage = ({ id }) => {
                 </Field>
 
                 <Control>
-                  <Submit className="button is-link">Post Review</Submit>
+                  <Submit disabled={loading} className="button is-link">
+                    Post Review
+                  </Submit>
                 </Control>
               </Form>
             </Column>
