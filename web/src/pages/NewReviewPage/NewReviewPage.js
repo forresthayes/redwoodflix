@@ -11,6 +11,7 @@ import {
 import { useState } from 'react'
 import UserLayout from 'src/layouts/UserLayout'
 import { Link, routes, navigate } from '@redwoodjs/router'
+import MovieTitleCell from 'src/components/MovieTitleCell'
 import { Rating } from '@material-ui/lab'
 import { Title, Section, Container, Field, Control, Column } from 'rbx'
 
@@ -42,11 +43,17 @@ const NewReviewPage = ({ id }) => {
       <Section>
         <Container>
           <Column.Group>
-            <Column size="4" offset="1">
+            <Column offset="1">
               <Title>
                 New Review for{' '}
-                <Link to={routes.movie({ id: id })}>a movie</Link>
+                <Link to={routes.movie({ id: id })}>
+                  <MovieTitleCell id={id} />
+                </Link>
               </Title>
+            </Column>
+          </Column.Group>
+          <Column.Group>
+            <Column size="4" offset="1">
               <Form
                 onSubmit={onSubmit}
                 validation={{ mode: 'onBlur' }}
