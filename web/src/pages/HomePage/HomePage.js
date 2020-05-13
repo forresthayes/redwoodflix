@@ -1,11 +1,11 @@
-import ApplicationLayout from 'src/layouts/ApplicationLayout'
-import FlixCell from 'src/components/FlixCell'
+import UserLayout from 'src/layouts/UserLayout'
+import MoviesCell from 'src/components/MoviesCell'
 
 const HomePage = () => {
   return (
-    <ApplicationLayout>
-      <FlixCell />
-    </ApplicationLayout>
+    <UserLayout>
+      <MoviesCell />
+    </UserLayout>
   )
 }
 

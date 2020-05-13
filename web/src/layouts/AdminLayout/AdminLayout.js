@@ -1,13 +1,13 @@
 import { Link, routes } from '@redwoodjs/router'
 
-const MoviesLayout = (props) => {
+const AdminLayout = (props) => {
   return (
     <div className="rw-scaffold">
       <div className="bg-white font-sans">
         <header className="flex justify-between py-4 px-8">
           <h1 className="text-xl font-semibold">
             <Link
-              to={routes.movies()}
+              to={routes.adminMovies()}
               className="text-gray-700 hover:text-gray-900 hover:underline"
             >
               Movies
@@ -27,4 +27,4 @@ const MoviesLayout = (props) => {
   )
 }
 
-export default MoviesLayout
+export default AdminLayout

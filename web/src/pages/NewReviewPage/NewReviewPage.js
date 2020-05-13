@@ -9,7 +9,7 @@ import {
   useMutation,
 } from '@redwoodjs/web'
 import { useState } from 'react'
-import ApplicationLayout from 'src/layouts/ApplicationLayout'
+import UserLayout from 'src/layouts/UserLayout'
 import { Link, routes, navigate } from '@redwoodjs/router'
 import { Rating } from '@material-ui/lab'
 import { Title, Section, Container, Field, Control, Column } from 'rbx'
@@ -26,7 +26,7 @@ const NewReviewPage = ({ id }) => {
   const [create, { loading, error }] = useMutation(CREATE_CONTACT, {
     onCompleted: () => {
       alert('Review posted successfully!')
-      navigate(routes.flick({ id }))
+      navigate(routes.movies({ id }))
     },
   })
 
@@ -38,14 +38,14 @@ const NewReviewPage = ({ id }) => {
   }
 
   return (
-    <ApplicationLayout>
+    <UserLayout>
       <Section>
         <Container>
           <Column.Group>
             <Column size="4" offset="1">
               <Title>
                 New Review for{' '}
-                <Link to={routes.flick({ id: id })}>a movie</Link>
+                <Link to={routes.movie({ id: id })}>a movie</Link>
               </Title>
               <Form
                 onSubmit={onSubmit}
@@ -128,7 +128,7 @@ const NewReviewPage = ({ id }) => {
           </Column.Group>
         </Container>
       </Section>
-    </ApplicationLayout>
+    </UserLayout>
   )
 }
 

@@ -73,7 +73,7 @@ const MoviesList = ({ movies }) => {
                   <ul>
                     <li className="inline-block">
                       <Link
-                        to={routes.movie({ id: movie.id })}
+                        to={routes.adminMovie({ id: movie.id })}
                         title={'Show movie ' + movie.id + ' detail'}
                         className="text-xs bg-gray-100 text-gray-600 hover:bg-gray-600 hover:text-white rounded-sm px-2 py-1 uppercase font-semibold tracking-wide"
                       >

@@ -1,11 +1,11 @@
-import MoviesLayout from 'src/layouts/MoviesLayout'
+import AdminLayout from 'src/layouts/AdminLayout'
 import NewMovie from 'src/components/NewMovie'
 
 const NewMoviePage = () => {
   return (
-    <MoviesLayout>
+    <AdminLayout>
       <NewMovie />
-    </MoviesLayout>
+    </AdminLayout>
   )
 }
 

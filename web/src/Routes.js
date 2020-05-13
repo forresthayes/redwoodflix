@@ -13,19 +13,27 @@ const Routes = () => {
   return (
     <Router>
       <Route
-        path="/flick/{id:Int}/new-review"
+        path="/movies/{id:Int}/new-review"
         page={NewReviewPage}
         name="newReview"
       />
-      <Route path="/flick/{id:Int}" page={FlickPage} name="flick" />
-      <Route path="/movies/new" page={NewMoviePage} name="newMovie" />
+      <Route path="/movies/{id:Int}" page={MoviePage} name="movie" />
       <Route
-        path="/movies/{id:Int}/edit"
-        page={EditMoviePage}
+        path="/admin/movies/new"
+        page={AdminNewMoviePage}
+        name="newMovie"
+      />
+      <Route
+        path="/admin/movies/{id:Int}/edit"
+        page={AdminEditMoviePage}
         name="editMovie"
       />
-      <Route path="/movies/{id:Int}" page={MoviePage} name="movie" />
-      <Route path="/movies" page={MoviesPage} name="movies" />
+      <Route
+        path="/admin/movies/{id:Int}"
+        page={AdminMoviePage}
+        name="adminMovie"
+      />
+      <Route path="/admin/movies" page={AdminMoviesPage} name="adminMovies" />
       <Route path="/" page={HomePage} name="home" />
       <Route notfound page={NotFoundPage} />
     </Router>

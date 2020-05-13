@@ -9,10 +9,10 @@ const DELETE_MOVIE_MUTATION = gql`
   }
 `
 
-const Movie = ({ movie }) => {
+const AdminMovie = ({ movie }) => {
   const [deleteMovie] = useMutation(DELETE_MOVIE_MUTATION, {
     onCompleted: () => {
-      navigate(routes.movies())
+      navigate(routes.adminMovies())
       location.reload()
     },
   })
@@ -34,29 +34,49 @@ const Movie = ({ movie }) => {
             <tr className="odd:bg-gray-100 even:bg-white border-t">
               <td className="font-semibold p-3 text-right md:w-1/5">id</td>
               <td className="p-3">{movie.id}</td>
-            </tr><tr className="odd:bg-gray-100 even:bg-white border-t">
+            </tr>
+            <tr className="odd:bg-gray-100 even:bg-white border-t">
               <td className="font-semibold p-3 text-right md:w-1/5">title</td>
               <td className="p-3">{movie.title}</td>
-            </tr><tr className="odd:bg-gray-100 even:bg-white border-t">
-              <td className="font-semibold p-3 text-right md:w-1/5">description</td>
+            </tr>
+            <tr className="odd:bg-gray-100 even:bg-white border-t">
+              <td className="font-semibold p-3 text-right md:w-1/5">
+                description
+              </td>
               <td className="p-3">{movie.description}</td>
-            </tr><tr className="odd:bg-gray-100 even:bg-white border-t">
-              <td className="font-semibold p-3 text-right md:w-1/5">released_on</td>
+            </tr>
+            <tr className="odd:bg-gray-100 even:bg-white border-t">
+              <td className="font-semibold p-3 text-right md:w-1/5">
+                released_on
+              </td>
               <td className="p-3">{movie.released_on}</td>
-            </tr><tr className="odd:bg-gray-100 even:bg-white border-t">
+            </tr>
+            <tr className="odd:bg-gray-100 even:bg-white border-t">
               <td className="font-semibold p-3 text-right md:w-1/5">rating</td>
               <td className="p-3">{movie.rating}</td>
-            </tr><tr className="odd:bg-gray-100 even:bg-white border-t">
-              <td className="font-semibold p-3 text-right md:w-1/5">total_gross</td>
+            </tr>
+            <tr className="odd:bg-gray-100 even:bg-white border-t">
+              <td className="font-semibold p-3 text-right md:w-1/5">
+                total_gross
+              </td>
               <td className="p-3">{movie.total_gross}</td>
-            </tr><tr className="odd:bg-gray-100 even:bg-white border-t">
-              <td className="font-semibold p-3 text-right md:w-1/5">director</td>
+            </tr>
+            <tr className="odd:bg-gray-100 even:bg-white border-t">
+              <td className="font-semibold p-3 text-right md:w-1/5">
+                director
+              </td>
               <td className="p-3">{movie.director}</td>
-            </tr><tr className="odd:bg-gray-100 even:bg-white border-t">
-              <td className="font-semibold p-3 text-right md:w-1/5">duration</td>
+            </tr>
+            <tr className="odd:bg-gray-100 even:bg-white border-t">
+              <td className="font-semibold p-3 text-right md:w-1/5">
+                duration
+              </td>
               <td className="p-3">{movie.duration}</td>
-            </tr><tr className="odd:bg-gray-100 even:bg-white border-t">
-              <td className="font-semibold p-3 text-right md:w-1/5">image_file_name</td>
+            </tr>
+            <tr className="odd:bg-gray-100 even:bg-white border-t">
+              <td className="font-semibold p-3 text-right md:w-1/5">
+                image_file_name
+              </td>
               <td className="p-3">{movie.image_file_name}</td>
             </tr>
           </tbody>
@@ -87,4 +107,4 @@ const Movie = ({ movie }) => {
   )
 }
 
-export default Movie
+export default AdminMovie

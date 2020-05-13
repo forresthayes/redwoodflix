@@ -1,11 +1,11 @@
-import MoviesLayout from 'src/layouts/MoviesLayout'
+import AdminLayout from 'src/layouts/AdminLayout'
 import EditMovieCell from 'src/components/EditMovieCell'
 
 const EditMoviePage = ({ id }) => {
   return (
-    <MoviesLayout>
+    <AdminLayout>
       <EditMovieCell id={id} />
-    </MoviesLayout>
+    </AdminLayout>
   )
 }
 

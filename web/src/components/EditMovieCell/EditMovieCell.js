@@ -44,7 +44,12 @@ export const Success = ({ movie }) => {
         <h2 className="text-sm font-semibold">Edit Movie {movie.id}</h2>
       </header>
       <div className="bg-gray-100 p-4">
-        <MovieForm movie={movie} onSave={onSave} error={error} loading={loading} />
+        <MovieForm
+          movie={movie}
+          onSave={onSave}
+          error={error}
+          loading={loading}
+        />
       </div>
     </div>
   )
