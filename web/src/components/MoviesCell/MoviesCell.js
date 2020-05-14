@@ -29,11 +29,11 @@ export const Success = ({ movies }) => {
   return movies.map((movie) => (
     <Section key={movie.id} style={{ borderBottom: '1px dotted #c2c2c2' }}>
       <Column.Group>
-        <Column size={2} offset={2}>
+        <Column size={3} offset={1}>
           <Image.Container>
             <Image
               src={`/static-files/images/${movie.image_file_name}`}
-              style={{ width: '100px' }}
+              style={{ width: '100px', margin: 'auto' }}
             />
           </Image.Container>
         </Column>
