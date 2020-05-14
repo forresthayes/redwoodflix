@@ -1,5 +1,6 @@
 import { Link, routes } from '@redwoodjs/router'
 import { Section, Column, Image, Title, Button } from 'rbx'
+import AvgRating from 'src/components/AvgRating'
 
 export const QUERY = gql`
   query($id: Int!) {
@@ -13,6 +14,9 @@ export const QUERY = gql`
       description
       released_on
       image_file_name
+      reviews {
+        stars
+      }
     }
   }
 `
@@ -30,6 +34,7 @@ export const Success = ({ movie }) => {
     minimumFractionDigits: 0,
   })
   const releasedOn = new Date(movie.released_on).getFullYear()
+  const { reviews } = movie
 
   return (
     <Section>
@@ -46,9 +51,18 @@ export const Success = ({ movie }) => {
           <Title size={3} style={{ marginBottom: '0.4rem' }}>
             {movie.title}
           </Title>
-          <Title subtitle size={4} textColor="grey" style={{ marginTop: '0' }}>
+          <Title
+            subtitle
+            size={4}
+            textColor="grey"
+            style={{ marginTop: '0', marginBottom: '0.25em' }}
+          >
             {releasedOn} &bull; {movie.rating}
           </Title>
+          <AvgRating movie={movie} />
+          <p style={{ marginBottom: '1em' }}>
+            {reviews.length} review{reviews.length == 1 ? '' : 's'}
+          </p>
           <p className={'is-size-5'}>{movie.description}</p>
           <table
             style={{
