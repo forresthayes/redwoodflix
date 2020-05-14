@@ -1,12 +1,15 @@
 import { db } from 'src/lib/db'
 
 export const movies = () => {
-  return db.movie.findMany()
+  return db.movie.findMany({
+    include: { reviews: true },
+  })
 }
 
 export const movie = ({ id }) => {
   return db.movie.findOne({
     where: { id },
+    include: { reviews: true },
   })
 }
 

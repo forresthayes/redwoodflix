@@ -9,6 +9,17 @@ export const schema = gql`
     director: String!
     duration: String!
     image_file_name: String!
+    reviews: [Review!]!
+  }
+
+  type Review {
+    id: Int!
+    name: String!
+    stars: Int!
+    comment: String!
+    createdAt: DateTime!
+    movie: Movie!
+    movieId: Int!
   }
 
   type Query {

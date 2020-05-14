@@ -1,5 +1,6 @@
 import { Link, routes } from '@redwoodjs/router'
 import { Section, Title, Image, Column } from 'rbx'
+import AvgRating from 'src/components/AvgRating'
 
 export const QUERY = gql`
   query {
@@ -9,6 +10,9 @@ export const QUERY = gql`
       description
       total_gross
       image_file_name
+      reviews {
+        stars
+      }
     }
   }
 `
@@ -29,7 +33,7 @@ export const Success = ({ movies }) => {
   return movies.map((movie) => (
     <Section key={movie.id} style={{ borderBottom: '1px dotted #c2c2c2' }}>
       <Column.Group>
-        <Column size={3} offset={1}>
+        <Column size={2} offset={1}>
           <Image.Container>
             <Image
               src={`/static-files/images/${movie.image_file_name}`}
@@ -38,6 +42,7 @@ export const Success = ({ movies }) => {
           </Image.Container>
         </Column>
         <Column size={7}>
+          <AvgRating movie={movie} className="is-pulled-right" />
           <Title size={4} style={{ marginBottom: '0.4rem' }}>
             <Link to={routes.movie({ id: movie.id })}>{movie.title}</Link>
           </Title>
