@@ -12,16 +12,6 @@ export const schema = gql`
     reviews: [Review!]!
   }
 
-  type Review {
-    id: Int!
-    name: String!
-    stars: Int!
-    comment: String!
-    createdAt: DateTime!
-    movie: Movie!
-    movieId: Int!
-  }
-
   type Query {
     movies: [Movie!]!
     movie(id: Int!): Movie!

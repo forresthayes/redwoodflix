@@ -187,7 +187,43 @@ async function main() {
     )
   })
 
-  console.info('\nSeeded ${movieData.length} posts\n')
+  console.info(`\nSeeded ${movieData.length} posts\n`)
+
+  const reviewData = [
+    {
+      name: 'Amy',
+      stars: 5,
+      comment: 'Extraordinary!',
+    },
+    {
+      name: 'Oliver',
+      stars: 4,
+      comment: 'Raises the bar',
+    },
+    {
+      name: 'Matthew',
+      stars: 5,
+      comment: 'The special effects are amazing!',
+    },
+  ]
+
+  const reviews = []
+
+  await asyncForEach(reviewData, async (review, index) => {
+    console.log(`Creating review ${index + 1}...`)
+    reviews.push(
+      await db.review.create({
+        data: {
+          ...review,
+          movie: {
+            connect: { id: 1 },
+          },
+        },
+      })
+    )
+  })
+
+  console.info(`\nSeeded ${reviews.length} reviews\n`)
 }
 
 main()
