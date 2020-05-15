@@ -61,7 +61,9 @@ export const Success = ({ movie }) => {
           </Title>
           <AvgRating movie={movie} />
           <p style={{ marginBottom: '1em' }}>
-            {reviews.length} review{reviews.length == 1 ? '' : 's'}
+            <Link to={routes.reviews({ id: movie.id })}>
+              {reviews.length} review{reviews.length == 1 ? '' : 's'}
+            </Link>
           </p>
           <p className={'is-size-5'}>{movie.description}</p>
           <table

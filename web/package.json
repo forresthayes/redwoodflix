@@ -13,6 +13,7 @@
     "@material-ui/lab": "^4.0.0-alpha.53",
     "@redwoodjs/router": "^0.6.0",
     "@redwoodjs/web": "^0.6.0",
+    "moment": "^2.25.3",
     "prop-types": "^15.7.2",
     "rbx": "^2.2.0",
     "react": "^16.13.1",

@@ -15,7 +15,7 @@ import MovieTitleCell from 'src/components/MovieTitleCell'
 import { Rating } from '@material-ui/lab'
 import { Title, Section, Container, Field, Control, Column } from 'rbx'
 
-const CREATE_CONTACT = gql`
+const CREATE_REVIEW = gql`
   mutation CreateReviewMutation($input: CreateReviewInput!) {
     createReview(input: $input) {
       id
@@ -24,10 +24,10 @@ const CREATE_CONTACT = gql`
 `
 
 const NewReviewPage = ({ id }) => {
-  const [create, { loading, error }] = useMutation(CREATE_CONTACT, {
+  const [create, { loading, error }] = useMutation(CREATE_REVIEW, {
     onCompleted: () => {
       alert('Review posted successfully!')
-      navigate(routes.movies({ id }))
+      navigate(routes.movie({ id }))
     },
   })
 

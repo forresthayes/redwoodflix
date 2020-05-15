@@ -11,6 +11,7 @@ export const schema = gql`
 
   type Query {
     reviews: [Review!]!
+    findReviewsByMovie(movieId: Int): [Review!]!
   }
 
   input CreateReviewInput {
