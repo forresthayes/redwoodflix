@@ -3,6 +3,8 @@ import { Generic, Image, Navbar, Container, Title, Footer } from 'rbx'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFilm } from '@fortawesome/free-solid-svg-icons'
 
+import logo from './diecut_mark.png'
+
 const ApplicationLayout = ({ children }) => {
   return (
     <>
@@ -36,13 +38,13 @@ const ApplicationLayout = ({ children }) => {
         textColor="light"
         textAlign="centered"
       >
-        Built by Forrest with{' '}
+        Built by Forrest with
         <a href="https://redwoodjs.com/">
           <Image.Container
             size={16}
             style={{ display: 'inline-block', margin: '0 0.3em' }}
           >
-            <Image src="/logo.svg" alt="Logo" />
+            <Image src={logo} alt="Logo" />
           </Image.Container>
           RedwoodJS
         </a>
