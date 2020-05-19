@@ -194,16 +194,73 @@ async function main() {
       name: 'Amy',
       stars: 5,
       comment: 'Extraordinary!',
+      movie: {
+        connect: { id: 1 },
+      },
     },
     {
       name: 'Oliver',
       stars: 4,
       comment: 'Raises the bar',
+      movie: {
+        connect: { id: 1 },
+      },
     },
     {
       name: 'Matthew',
       stars: 5,
       comment: 'The special effects are amazing!',
+      movie: {
+        connect: { id: 1 },
+      },
+    },
+    {
+      name: 'Jim',
+      stars: 4,
+      comment: 'So much fun!',
+      movie: {
+        connect: { id: 2 },
+      },
+    },
+    {
+      name: 'Brie',
+      stars: 5,
+      comment: 'My favorite movie!',
+      movie: {
+        connect: { id: 2 },
+      },
+    },
+    {
+      name: 'Lee',
+      stars: 2,
+      comment: 'Not my thing...',
+      movie: {
+        connect: { id: 2 },
+      },
+    },
+    {
+      name: 'Lawrence',
+      stars: 5,
+      comment: 'Lived up to the hype.',
+      movie: {
+        connect: { id: 3 },
+      },
+    },
+    {
+      name: 'Christopher',
+      stars: 4,
+      comment: 'Thought-provoking',
+      movie: {
+        connect: { id: 3 },
+      },
+    },
+    {
+      name: 'Lupita',
+      stars: 5,
+      comment: 'A fresh spin!',
+      movie: {
+        connect: { id: 3 },
+      },
     },
   ]
 
@@ -211,16 +268,7 @@ async function main() {
 
   await asyncForEach(reviewData, async (review, index) => {
     console.log(`Creating review ${index + 1}...`)
-    reviews.push(
-      await db.review.create({
-        data: {
-          ...review,
-          movie: {
-            connect: { id: 1 },
-          },
-        },
-      })
-    )
+    reviews.push(await db.review.create({ data: review }))
   })
 
   console.info(`\nSeeded ${reviews.length} reviews\n`)
