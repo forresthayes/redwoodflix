@@ -30,7 +30,7 @@ const ApplicationLayout = ({ children }) => {
           </Navbar.Segment>
         </Navbar.Menu>
       </Navbar>
-      <Generic as="main" backgroundColor="white-ter">
+      <Generic as="main">
         <Container>{children}</Container>
       </Generic>
       <Footer
