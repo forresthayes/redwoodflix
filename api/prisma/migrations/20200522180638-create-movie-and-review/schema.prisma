@@ -1,0 +1,34 @@
+datasource DS {
+  provider = "postgresql"
+  url = "***"
+}
+
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = env("BINARY_TARGET")
+}
+
+// Define your own datamodels here and run `yarn redwood db save` to create
+// migrations for them.
+model Movie {
+  id              Int      @default(autoincrement()) @id
+  title           String
+  description     String
+  released_on     DateTime
+  rating          String
+  total_gross     Int
+  director        String
+  duration        String
+  image_file_name String
+  reviews         Review[]
+}
+
+model Review {
+  id        Int      @default(autoincrement()) @id
+  name      String
+  stars     Int
+  comment   String
+  createdAt DateTime @default(now())
+  movie     Movie    @relation(fields: [movieId], references: [id])
+  movieId   Int
+}
