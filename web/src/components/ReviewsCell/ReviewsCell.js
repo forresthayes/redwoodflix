@@ -23,9 +23,7 @@ export const Empty = () => <div>No reviews</div>
 export const Failure = ({ error }) => <div>Error: {error.message}</div>
 
 export const Success = ({ reviews }) => {
-  const formattedDate = (date) => {
-    return moment(date).fromNow()
-  }
+  const formattedDate = (date) => moment(date).fromNow()
 
   return (
     <ul>

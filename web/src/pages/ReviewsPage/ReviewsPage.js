@@ -17,7 +17,7 @@ const ReviewPage = ({ id }) => {
                   <MovieTitleCell id={id} />
                 </Link>
               </Title>
-              <ReviewsCell id={id} />
+              <ReviewsCell movieId={id} />
             </Column>
           </Column.Group>
         </Container>
