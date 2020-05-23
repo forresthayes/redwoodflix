@@ -1,4 +1,5 @@
 import { db } from 'src/lib/db'
+import { requireAuth } from 'src/lib/auth'
 
 export const movies = () => {
   return db.movie.findMany({
@@ -14,12 +15,14 @@ export const movie = ({ id }) => {
 }
 
 export const createMovie = ({ input }) => {
+  requireAuth()
   return db.movie.create({
     data: input,
   })
 }
 
 export const updateMovie = ({ id, input }) => {
+  requireAuth()
   return db.movie.update({
     data: input,
     where: { id },
@@ -27,6 +30,7 @@ export const updateMovie = ({ id, input }) => {
 }
 
 export const deleteMovie = ({ id }) => {
+  requireAuth()
   return db.movie.delete({
     where: { id },
   })

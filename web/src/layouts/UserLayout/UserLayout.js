@@ -1,11 +1,13 @@
 import { Link, routes } from '@redwoodjs/router'
+import { useAuth } from '@redwoodjs/auth'
 import { Generic, Image, Navbar, Container, Title, Footer } from 'rbx'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFilm } from '@fortawesome/free-solid-svg-icons'
 
 import logo from './diecut_mark.png'
 
-const ApplicationLayout = ({ children }) => {
+const UserLayout = ({ children }) => {
+  const { logIn, logOut, isAuthenticated } = useAuth()
   return (
     <>
       <Navbar color="info">
@@ -15,17 +17,27 @@ const ApplicationLayout = ({ children }) => {
               <FontAwesomeIcon icon={faFilm} /> FLIX
             </Title>
           </Navbar.Item>
+          <Navbar.Burger />
         </Navbar.Brand>
         <Navbar.Menu>
           <Navbar.Segment align="start">
             <Navbar.Item
               as={Link}
               to={routes.home()}
-              textColor="light"
               textSize={5}
               style={{ paddingTop: '1.9rem' }}
             >
               All Movies
+            </Navbar.Item>
+          </Navbar.Segment>
+          <Navbar.Segment align="end">
+            <Navbar.Item
+              href="#"
+              onClick={isAuthenticated ? logOut : logIn}
+              textSize={5}
+              style={{ marginRight: '2rem', paddingTop: '1.9rem' }}
+            >
+              {isAuthenticated ? 'Log Out' : 'Log In'}
             </Navbar.Item>
           </Navbar.Segment>
         </Navbar.Menu>
@@ -56,4 +68,4 @@ const ApplicationLayout = ({ children }) => {
   )
 }
 
-export default ApplicationLayout
+export default UserLayout

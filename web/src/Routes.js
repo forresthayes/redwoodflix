@@ -7,7 +7,7 @@
 // 'src/pages/HomePage/HomePage.js'         -> HomePage
 // 'src/pages/Admin/BooksPage/BooksPage.js' -> AdminBooksPage
 
-import { Router, Route } from '@redwoodjs/router'
+import { Router, Route, Private } from '@redwoodjs/router'
 
 const Routes = () => {
   return (
@@ -23,23 +23,25 @@ const Routes = () => {
         name="newReview"
       />
       <Route path="/movies/{id:Int}" page={MoviePage} name="movie" />
-      <Route
-        path="/admin/movies/new"
-        page={AdminNewMoviePage}
-        name="newMovie"
-      />
-      <Route
-        path="/admin/movies/{id:Int}/edit"
-        page={AdminEditMoviePage}
-        name="editMovie"
-      />
-      <Route
-        path="/admin/movies/{id:Int}"
-        page={AdminMoviePage}
-        name="adminMovie"
-      />
-      <Route path="/admin/movies" page={AdminMoviesPage} name="adminMovies" />
       <Route path="/" page={HomePage} name="home" />
+      <Private unauthenticated="home">
+        <Route
+          path="/admin/movies/new"
+          page={AdminNewMoviePage}
+          name="newMovie"
+        />
+        <Route
+          path="/admin/movies/{id:Int}/edit"
+          page={AdminEditMoviePage}
+          name="editMovie"
+        />
+        <Route
+          path="/admin/movies/{id:Int}"
+          page={AdminMoviePage}
+          name="adminMovie"
+        />
+        <Route path="/admin/movies" page={AdminMoviesPage} name="adminMovies" />
+      </Private>
       <Route notfound page={NotFoundPage} />
     </Router>
   )
