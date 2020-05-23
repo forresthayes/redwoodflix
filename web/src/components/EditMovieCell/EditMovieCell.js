@@ -30,12 +30,17 @@ export const Loading = () => <div>Loading...</div>
 export const Success = ({ movie }) => {
   const [updateMovie, { loading, error }] = useMutation(UPDATE_MOVIE_MUTATION, {
     onCompleted: () => {
-      navigate(routes.movies())
+      navigate(routes.adminMovies())
     },
   })
 
   const onSave = (input, id) => {
-    updateMovie({ variables: { id, input } })
+    const castInput = {
+      ...input,
+      total_gross: parseInt(input.total_gross),
+    }
+
+    updateMovie({ variables: { id, input: castInput } })
   }
 
   return (
