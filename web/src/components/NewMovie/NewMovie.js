@@ -18,7 +18,12 @@ const NewMovie = () => {
   })
 
   const onSave = (input) => {
-    createMovie({ variables: { input } })
+    const castInput = {
+      ...input,
+      total_gross: parseInt(input.total_gross),
+    }
+
+    createMovie({ variables: { input: castInput } })
   }
 
   return (
