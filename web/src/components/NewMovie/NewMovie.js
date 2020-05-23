@@ -13,7 +13,7 @@ const CREATE_MOVIE_MUTATION = gql`
 const NewMovie = () => {
   const [createMovie, { loading, error }] = useMutation(CREATE_MOVIE_MUTATION, {
     onCompleted: () => {
-      navigate(routes.movies())
+      navigate(routes.adminMovies())
     },
   })
 
